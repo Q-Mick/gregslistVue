@@ -20,7 +20,11 @@
         <HouseCard :houseProp="house" />
       </div>
     </section>
+
   </div>
+  <Modal id="create-house">
+    <HouseForm />
+  </Modal>
 </template>
 
 
