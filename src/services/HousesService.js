@@ -7,8 +7,8 @@ class HouseService{
   async getHouses() {
     const res = await api.get('api/houses')
     logger.log('[GETTING HOUSE]', res.data)
-    AppState.house = res.data.map(h => new House(h))
-    logger.log(AppState.house)
+    AppState.houses = res.data.map(h => new House(h))
+    logger.log(AppState.houses)
 }
 
 async getHouseById(houseId) {
@@ -21,13 +21,13 @@ async getHouseById(houseId) {
 async createHouse(formData) {
     const res = await api.post('api/houses', formData)
     logger.log('[CREATING HOUSE]', res.data)
-    AppState.house.unshift(new House(res.data))
+    AppState.houses.unshift(new House(res.data))
 }
 
 async deleteHouse(houseId) {
     const res = await api.delete(`api/houses/${houseId}`)
     logger.log('[DELETING HOUSE]', res.data)
-    AppState.house = AppState.house.filter(h => h.id != houseId)
+    AppState.houses = AppState.houses.filter(h => h.id != houseId)
 }
 }
 

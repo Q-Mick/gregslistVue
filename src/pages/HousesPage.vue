@@ -14,7 +14,7 @@
       <!-- NOTE when I want to pass data from a parent component to the child... we do that using props -->
       <div
         class="col-md-3 my-3"
-        v-for="house in housesInAppState"
+        v-for="house in HousesInAppState"
         :key="house.id"
       >
         <HouseCard :houseProp="house" />
@@ -25,26 +25,30 @@
 
 
 <script>
-import { onMounted } from "vue";
+import { computed, onMounted } from "vue";
 import { houseService } from "../services/HousesService.js";
-
+import { logger } from "../utils/Logger.js";
+import Pop from "../utils/Pop.js";
+import { AppState } from "../AppState.js";
+import HouseCard from "../components/HouseCard.vue";
 export default {
+  components: { HouseCard },
   setup() {
     async function getHouses() {
-        try {
-          await houseService.getHouses()
-        } catch (error) {
-            pop.error(error.message)
-            logger.log(error)
-        }
+      try {
+        await houseService.getHouses();
+      } catch (error) {
+        Pop.error(error.message);
+        logger.log(error);
+      }
     }
 
-      onMounted(()=>{
-        getHouses()
-      })
+    onMounted(() => {
+      getHouses();
+    });
 
     return {
-
+      HousesInAppState: computed(() => AppState.houses),
     };
   },
 };
