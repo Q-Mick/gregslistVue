@@ -29,6 +29,17 @@ const routes = [
     component: loadPage('CarDetailsPage')
   },
   {
+    path: '/houses',
+    name: 'Houses',
+    component: loadPage('HousesPage')
+  },
+  {
+    // NOTE we can create unique endpoints through the use of parameters and ':'
+    path: '/houses/:houseId',
+    name: 'houseDetails',
+    component: loadPage('HouseDetailsPage')
+  },
+  {
     path: '/account',
     name: 'Account',
     component: loadPage('AccountPage'),
