@@ -1,12 +1,11 @@
 <template>
-
+  <div class="rounded elevation-5" v-if="houseProp">
   <div class="rounded elevation-5">
     <router-link :to="{ name: 'HouseDetails', params: { houseId: houseProp?.id } }">
-       <!--⬆️ aliasing houseId from parameter to houseprop ⬇️ binding src attribute to house prop value  -->
             <img class="img-fluid rounded-top" :src="houseProp?.imgUrl" alt="">
         </router-link>
         <div class="p-2">
-            <h1>{{ houseProp?.model }}</h1>
+            <h1>{{ houseProp?.year }}</h1>
             <div class="d-flex justify-content-between align-items-center">
                 <p>{{ houseProp?.price }}</p>
                 <img class="creator-img" :src="houseProp?.creator.picture" alt="">
@@ -19,6 +18,7 @@
             </div>
         </div>
   </div>
+</div>
 </template>
 
 

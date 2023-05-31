@@ -4,7 +4,7 @@
 
           <div class="col-8">
               <HouseCard :houseProp="activeHouse" />
-              <h1>{{ activeHouse?.bathrooms}}</h1>
+              <h1>{{ activeHouse?.year}}</h1>
               <h2>{{ activeHouse?.description }}</h2>
           </div>
 
@@ -27,7 +27,8 @@ export default {
       const router = useRouter(); // NOTE gives me access to the entire VUE router (this router.js here)
       async function getHouseById() {
           try {
-              // NOTE grab the carId from the route parameters
+              // NOTE grab the houseId from the route parameters
+            
               const houseId = route.params.houseId;
               await houseService.getHouseById(houseId);
           }

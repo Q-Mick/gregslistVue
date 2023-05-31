@@ -2,9 +2,9 @@
     <div class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
 
+            
             <!-- NOTE this 'slot' is the placeholder for what I want to inject into this component (modal) -->
             <slot>
-
             </slot>
 
             <!-- NOTE this is the Modal Guts -->
